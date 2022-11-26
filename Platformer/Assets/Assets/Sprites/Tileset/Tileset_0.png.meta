@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,7 +115,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Tileset_0_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 344
+        width: 190
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f2e165544abc3f48842a86c9429e7e7
+      internalID: -1454590534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +147,21 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tileset_0_11: 1309380798
+      Tileset_0_8: -612663928
+      Tileset_0_7: 1136219478
+      Tileset_0_6: -473738665
+      Tileset_0_13: -804773377
+      Tileset_0_1: -997283653
+      Tileset_0_3: -1401725953
+      Tileset_0_10: -1652068783
+      Tileset_0_9: 300629657
+      Tileset_0_0: -1454590534
+      Tileset_0_5: -173607810
+      Tileset_0_2: -236261461
+      Tileset_0_4: 829174509
+      Tileset_0_12: -1197593499
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
