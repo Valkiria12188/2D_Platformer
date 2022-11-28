@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    [Header("Player Movement Settings")]
     public float speed = 5;
     private Animator anim;
     private Rigidbody2D rigid2d;
+
+    [Header("Ground Settings")]
     public Transform groundCheckPosition;
     public LayerMask groundLayer;
+
+    [Header("Jump Settings")]
+    private bool isGrounded;
+    private bool jumped;
+    [SerializeField]
+    private float jumpPower = 5f;
 
 
     private void Awake()
@@ -24,10 +33,8 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        if (Physics2D.Raycast(groundCheckPosition.position, Vector2.down,0.5f, groundLayer))
-        {
-            Debug.Log("wykryto grunt");
-        }
+        CheckIfGrounded();
+        PlayerJump();
     }
 
     private void FixedUpdate()
@@ -60,26 +67,36 @@ public class PlayerMove : MonoBehaviour
         anim.SetInteger("Speed", Mathf.Abs((int)rigid2d.velocity.x));
     }
 
-    void ChangeDirection( int direction)
+    void ChangeDirection(int direction)
     {
         Vector3 tempScale = transform.localScale;
         tempScale.x = direction;
         transform.localScale = tempScale;
     }
 
-    private void OnCollisionEnter2D(Collision2D target)
+    void CheckIfGrounded()
     {
-        if(target.gameObject.tag == "Ground")
+        isGrounded = Physics2D.Raycast(groundCheckPosition.position, Vector2.down, 0.1f, groundLayer);
+        if (isGrounded)
         {
-            Debug.Log("wykryto kolizje");
+            if (jumped)
+            {
+                jumped = false;
+                anim.SetBool("jump", false);
+            }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D target)
+    void PlayerJump()
     {
-        if (target.gameObject.tag == "Ground")
+        if (isGrounded)
         {
-            Debug.Log("wykryto trigger");
+            if (Input.GetKey(KeyCode.Space))
+            {
+                jumped = true;
+                rigid2d.velocity = new Vector2(rigid2d.velocity.x, jumpPower);
+                anim.SetBool("jump", true);
+            }
         }
     }
 }

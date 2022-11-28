@@ -136,11 +136,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 90.6
-        height: 68
+        y: 3
+        width: 88
+        height: 60
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -156,12 +156,12 @@ TextureImporter:
       name: snail_1
       rect:
         serializedVersion: 2
-        x: 90
-        y: 0
-        width: 90.6
-        height: 68
+        x: 91
+        y: 2
+        width: 88
+        height: 62
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -177,12 +177,12 @@ TextureImporter:
       name: snail_2
       rect:
         serializedVersion: 2
-        x: 180
-        y: 0
-        width: 90.6
-        height: 68
+        x: 182
+        y: 3
+        width: 88
+        height: 60
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,12 +198,12 @@ TextureImporter:
       name: snail_3
       rect:
         serializedVersion: 2
-        x: 270
-        y: 0
-        width: 90.6
-        height: 68
+        x: 280
+        y: 2
+        width: 81
+        height: 63
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -219,12 +219,12 @@ TextureImporter:
       name: snail_4
       rect:
         serializedVersion: 2
-        x: 362
-        y: 0
-        width: 91
-        height: 68
+        x: 392
+        y: 3
+        width: 56
+        height: 55
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,7 +239,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 38af0cbc43339e740b52f60286cc3222
     internalID: 0
     vertices: []
     indices: 
