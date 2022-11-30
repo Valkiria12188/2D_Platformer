@@ -55,16 +55,16 @@ public class SnailScript : MonoBehaviour
 
     void CheckCollision()
     {
-        RaycastHit2D leftHit = Physics2D.Raycast(left_Collision.position,Vector2.left,0.1f,playerLayer);
+        RaycastHit2D leftHit = Physics2D.Raycast(left_Collision.position, Vector2.left, 0.1f, playerLayer);
         RaycastHit2D rightHit = Physics2D.Raycast(right_Collision.position, Vector2.right, 0.1f, playerLayer);
 
         Collider2D topHit = Physics2D.OverlapCircle(top_Collision.position, 0.2f, playerLayer);
 
-        if(topHit!=null)
+        if (topHit != null)
         {
-            if(topHit.gameObject.tag==MyTags.Player_Tag)
+            if (topHit.gameObject.tag == MyTags.Player_Tag)
             {
-                if(!stunned)
+                if (!stunned)
                 {
                     topHit.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(topHit.gameObject.GetComponent<Rigidbody2D>().velocity.x, 7f);
                     canMove = false;
@@ -72,6 +72,12 @@ public class SnailScript : MonoBehaviour
                     anim.Play("SnailStunned");
                     stunned = true;
 
+
+                    if (tag == MyTags.Beetle_Tag)
+                    {
+                        anim.Play("Stunned");
+                        StartCoroutine(Dead(0.5f));
+                    }
                 }
             }
         }
@@ -83,11 +89,16 @@ public class SnailScript : MonoBehaviour
                 if (!stunned)
                 {
                     //dmg to player
-                    Debug.Log("left DMG");
+                    //Debug.Log("left DMG");
                 }
                 else
                 {
-                    rigid.velocity = new Vector2(15f, rigid.velocity.y);
+                    if (tag != MyTags.Beetle_Tag)
+                    {
+                        rigid.velocity = new Vector2(15f, rigid.velocity.y);
+                        StartCoroutine(Dead(3f));
+                    }
+
                 }
             }
         }
@@ -100,11 +111,15 @@ public class SnailScript : MonoBehaviour
                 if (!stunned)
                 {
                     //dmg to player
-                    Debug.Log("Right DMG");
+                    //Debug.Log("Right DMG");
                 }
                 else
                 {
-                    rigid.velocity = new Vector2(-15f, rigid.velocity.y);
+                    if (tag != MyTags.Beetle_Tag)
+                    {
+                        rigid.velocity = new Vector2(-15f, rigid.velocity.y);
+                    }
+                    
                 }
             }
         }
@@ -135,6 +150,13 @@ public class SnailScript : MonoBehaviour
 
         transform.localScale = tempScale;
     }
+
+    IEnumerator Dead(float timer)
+    {
+        yield return new WaitForSeconds(timer);
+        gameObject.SetActive(false);
+    }
+
 
 
 
